@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root{
+    --redhat: 'Red Hat Display', sans-serif;
+    --theme-color: #6096B4;
+    --theme-soft: #93BFCF;
+    --theme-light: #93BFCF;
+    --light: #EEE9DA;
+    --dark: #404258;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: 0.2s;
+    font-family: var(--redhat);
+}
+
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 87dvh;
+    padding: 50px 30px 30px;
+
+    h1{
+        font-size: 48px;
+        font-weight: 400;
+    }
+
+    .fields{
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        width: 100%;
+
+        .login-input{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            input{
+                border: none;
+                border-bottom: 2px solid;
+                font-size: 16px;
+                padding: 2px 12px;
+            }
+            label{
+                font-size: 20px;
+                color: var(--dark);
+            }
+            small{
+                position: absolute;
+                bottom: -20px;
+                span{
+                    color: red;
+                }
+            }
+        }
+    }
+
+    p{
+        text-align: center;
+
+        a{
+            color: var(--theme-color);
+            text-decoration: none;
+
+            &:hover{
+                color: black;
+            }
+        }
+    }
+}
+
+.register{
+    padding: 10px 30px 30px ;
+    .fields {
+        gap: 40px;
+    }
+}
+
+button{
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #6096B4;
+    color: white;
+    cursor: pointer;
+
+    &:disabled{
+        background-color: white;
+        color: var(--theme-color);
+        border: 2px solid var(--theme-color);
+    }
+
+    &:hover{
+        background-color: #93BFCF;
+    }
+}

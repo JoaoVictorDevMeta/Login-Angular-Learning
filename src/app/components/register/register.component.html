@@ -1,0 +1,79 @@
+<main class="auth">
+    <form [formGroup]="registerForm" (ngSubmit)="submitDetails()" class="auth-form register">
+        <h1>Registrar</h1>
+        <div class="fields">
+            <div class="login-input">
+                <label for="fullName">Nome</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    formControlName="fullName" 
+                    name="fullName"
+                >
+                <small *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+                    <span *ngIf="fullName.errors?.['required']">
+                        Este campo é Obrigatorio
+                    </span>
+                    <span *ngIf="fullName.errors?.['pattern']">
+                        Coloque um nome válido
+                    </span>
+                </small>
+            </div>
+            <div class="login-input">
+                <label for="email">Email</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    formControlName="email" 
+                    name="email"
+                >
+                <small *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <span *ngIf="email.errors?.['required']">
+                        Este campo é Obrigatorio
+                    </span>
+                    <span *ngIf="email.errors?.['email']">
+                        Deve ser um email Válido
+                    </span>
+                </small>
+            </div>
+            <div class="login-input">
+                <label for="password">Senha</label>
+                <input 
+                    type="password" 
+                    pInputText 
+                    formControlName="password" 
+                    name="password"
+                >
+                <small *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <span *ngIf="password.errors?.['required']">
+                        Este campo é Obrigatorio
+                    </span>
+                </small>
+                <small *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid">
+                    <span>
+                        Senhas não conferem
+                    </span>
+                </small>
+            </div>
+            <div class="login-input">
+                <label for="confirmPassword">Confimar Senha</label>
+                <input 
+                    type="password" 
+                    pInputText 
+                    formControlName="confirmPassword" 
+                    name="confirmPassword"
+                >
+                <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+                    <span *ngIf="confirmPassword.errors?.['required']">
+                        Este campo é Obrigatorio
+                    </span>
+                </small>
+            </div>
+        </div>
+        <button [disabled]="registerForm.invalid" type="submit">
+            Registrar
+        </button>
+        <p>Já tem conta? <a href="/login">Logar-se</a></p>
+
+    </form>
+</main>

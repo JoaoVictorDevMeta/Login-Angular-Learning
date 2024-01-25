@@ -1,0 +1,37 @@
+<main class="auth">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="auth-form">
+        <h1>Login</h1>
+        <div class="fields">
+            <div class="login-input">
+                <label for="email">Email</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    formControlName="email" 
+                    name="email"
+                >
+                <small *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <span *ngIf="email.errors?.['required']">Este campo é Obrigatorio</span>
+                    <span *ngIf="email.errors?.['email']">Deve ser um email Válido</span>
+                </small>
+            </div>
+            <div class="login-input">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    pInputText 
+                    formControlName="password" 
+                    name="password"
+                >
+                <small *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <span *ngIf="password.errors?.['required']">Este campo é Obrigatorio</span>
+                </small>
+            </div>
+        </div>
+        <button [disabled]="loginForm.invalid" type="submit">
+            Logar
+        </button>
+        <p>Não tem conta? <a href="/register">Registrar</a></p>
+
+    </form>
+</main>
